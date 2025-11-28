@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # ==================== CONFIG & UTILS ====================
-st.set_page_config(page_title="Klasifikasi Pisang (Updated)", layout="centered")
+st.set_page_config(page_title="Klasifikasi Pisang (Updated)", layout="wide")
 
 def gray_world(img_bgr):
     """Gray World White Balance (Sama persis dengan source)"""
