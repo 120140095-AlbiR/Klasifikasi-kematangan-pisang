@@ -2,12 +2,32 @@
 Link Web UI: https://klasifikasi-kematangan-pisang-kvnyvl4gzawfypdyzfdwtp.streamlit.app/
 
 ## Local Setup
-### Install Streamlit
+### 1. Install Streamlit
 
-* Windows
-  
-* Linux
-  
-### Download dan Install requirements.txt
+* Jalankan perintah berikut untuk menginstall streamlit
+  ```
+  pip install streamlit
+  ```
+* Untuk memastikan streamlit telah terinstall, jalankan perintah
+  ```
+  streamlit hello
+  ```
+  atau 
 
-### Download dan Run app.py
+  ```
+  python -m streamlit hello
+  ```
+  
+### 2. Download requirements.txt dan app.py
+### 3. Install requirements.txt
+* Buka terminal di folder tempat app.py di download
+* Jalankan perintah berikut
+  ```
+  pip install -r requirements.txt
+  ```
+
+### 4. Run app.py
+Untuk menjalankan program klasifikasi, jalankan perintah berikut
+```
+streamlit run app.py
+```
