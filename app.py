@@ -71,7 +71,7 @@ st.markdown("*Web UI Sistem Deteksi Kematangan Pisang menggunakan Rule-Based Cla
 st.divider()
 
 # 1. Upload File (Menggantikan hardcoded path)
-uploaded_file = st.file_uploader("Upload Gambar Mentah/Matang", type=['jpg', 'jpeg', 'png'])
+uploaded_file = st.file_uploader("Upload Gambar Pisang Mentah/Setengah Matang/Matang", type=['jpg', 'jpeg', 'png'])
 
 if uploaded_file is not None:
     # ==================== AKUISISI GAMBAR ====================
