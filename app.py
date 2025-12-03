@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # ==================== CONFIG & UTILS ====================
-st.set_page_config(page_title="Klasifikasi Kematangan Pisang", layout="wide")
+st.set_page_config(page_title="Klasifikasi Kematangan Pisang", layout="centered")
 
 def gray_world(img_bgr):
     """Gray World White Balance (Sama persis dengan source)"""
@@ -84,24 +84,24 @@ if uploaded_file is not None:
     # ==================== PRA-PEMROSESAN ====================
     
     # 3.4.1 Resize
-    st.markdown("### === Tahap Resize ===")
+    st.markdown("### Tahap Resize")
     target_size = 640
     resized = cv2.resize(img0, (target_size, target_size), interpolation=cv2.INTER_AREA)
     show_img_streamlit(resized, f'Hasil Resize ke {target_size}x{target_size}')
     st.text(f"Ukuran gambar setelah resize: {resized.shape}")
 
     # 3.4.2 Koreksi Kecerahan
-    st.markdown("### === Tahap Koreksi Kecerahan ===")
+    st.markdown("### Tahap Koreksi Kecerahan")
     gw = gray_world(resized)
     show_img_streamlit(gw, 'Setelah Gray World White Balance')
 
     # 3.4.3 Filtering
-    st.markdown("### === Tahap Filtering ===")
+    st.markdown("### Tahap Filtering")
     blur = cv2.GaussianBlur(gw, (5, 5), 0)
     show_img_streamlit(blur, 'Setelah Gaussian Blur (5x5)')
 
     # ==================== KONVERSI RUANG WARNA ====================
-    st.markdown("### === Tahap Konversi Ruang Warna ===")
+    st.markdown("### Tahap Konversi Ruang Warna")
     hsv = cv2.cvtColor(blur, cv2.COLOR_BGR2HSV)
     lab = cv2.cvtColor(blur, cv2.COLOR_BGR2LAB)
 
@@ -118,7 +118,7 @@ if uploaded_file is not None:
     with c5: show_img_streamlit(B, 'Channel b* (Lab)')
 
     # ==================== SEGMENTASI OBJEK BUAH ====================
-    st.markdown("### === Tahap Segmentasi HSV Thresholding ===")
+    st.markdown("### Tahap Segmentasi HSV Thresholding")
 
     lower_hsv = np.array([15, 40, 40])
     upper_hsv = np.array([85, 255, 255])
@@ -134,7 +134,7 @@ if uploaded_file is not None:
     show_img_streamlit(segmented, 'Hasil Segmentasi (Objek Buah Saja)')
 
     # ==================== ANALISIS WARNA ====================
-    st.markdown("### === Tahap Analisis Warna ===")
+    st.markdown("### Tahap Analisis Warna")
 
     mask_bool = mask_closed.astype(bool)
 
@@ -178,7 +178,7 @@ Mean b* (area tersegmentasi): {mean_bstar:.2f} (std: {std_bstar:.2f})
         st.pyplot(fig)
 
     # ==================== KLASIFIKASI KEMATANGAN ====================
-    st.markdown("### === Tahap Klasifikasi Kematangan Menurut Input Anda ===")
+    st.markdown("### Tahap Klasifikasi Kematangan Menurut Input Anda")
 
     hue_standar = mean_hue * 2 
     bstar_standar = (mean_bstar / 255) * 100 
@@ -236,7 +236,7 @@ Mean b* (area tersegmentasi): {mean_bstar:.2f} (std: {std_bstar:.2f})
     st.write(f"Deskripsi: {color_desc}")
 
     # ==================== VISUALISASI AKHIR ====================
-    st.markdown("### === Visualisasi Hasil Akhir + Contoh Warna Pisang Sesuai Input Anda ===")
+    st.markdown("### Visualisasi Hasil Akhir + Contoh Warna Pisang Sesuai Input Anda")
 
     fig, axes = plt.subplots(1, 3, figsize=(15, 5))
 
@@ -259,7 +259,7 @@ Mean b* (area tersegmentasi): {mean_bstar:.2f} (std: {std_bstar:.2f})
     st.pyplot(fig)
 
     # ==================== GENERATE GAMBAR REFERENSI ====================
-    st.markdown("### === Contoh Warna Pisang Sesuai Input Anda ===")
+    st.markdown("### Contoh Warna Pisang Sesuai Input Anda")
 
     colors_ref = {
         'Mentah (R2-R3)': {'hue': 110.0, 'bstar': 32.0},
