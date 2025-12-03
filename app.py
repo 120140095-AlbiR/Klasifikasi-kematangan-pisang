@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # ==================== CONFIG & UTILS ====================
-st.set_page_config(page_title="Klasifikasi Pisang (Updated)", layout="wide")
+st.set_page_config(page_title="Klasifikasi Kematangan Pisang", layout="wide")
 
 def gray_world(img_bgr):
     """Gray World White Balance (Sama persis dengan source)"""
@@ -67,7 +67,7 @@ def create_color_sample(hue_std, bstar_std, size=(100, 100)):
 # ==================== MAIN APP ====================
 
 st.title("🍌 Klasifikasi Kematangan Pisang")
-st.markdown("*Web UI mirroring output of `klasifikasi.py`*")
+st.markdown("*Web UI Sistem Deteksi Kematangan Pisang menggunakan Rule-Based Classification dan Gray World White Balance*")
 st.divider()
 
 # 1. Upload File (Menggantikan hardcoded path)
