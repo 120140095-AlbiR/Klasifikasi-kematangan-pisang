@@ -2,12 +2,12 @@
 Link Web UI: https://klasifikasi-kematangan-pisang-kvnyvl4gzawfypdyzfdwtp.streamlit.app/
 
 ## Local Setup
-## Install Streamlit
+### Install Streamlit
 
 * Windows
   
 * Linux
   
-## Download dan Install requirements.txt
+### Download dan Install requirements.txt
 
-## Download dan Run app.py
+### Download dan Run app.py
